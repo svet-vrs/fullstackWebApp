@@ -1,7 +1,5 @@
 package dev.svetlove.movies_posters.movies;
 
-
-import com.fasterxml.jackson.annotation.OptBoolean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +19,7 @@ public class MovieController {
 
     @GetMapping
     public ResponseEntity<List<Movie>> getMovies() {
-        return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
+        return new ResponseEntity<>(service.findAllMovies(), HttpStatus.OK);
     }
 
 //    @GetMapping("/{title}")
@@ -31,6 +29,6 @@ public class MovieController {
 
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
-        return new ResponseEntity<Optional<Movie>>(service.findMovieByImdbId(imdbId), HttpStatus.OK);
+        return new ResponseEntity<>(service.findMovieByImdbId(imdbId), HttpStatus.OK);
     }
 }
